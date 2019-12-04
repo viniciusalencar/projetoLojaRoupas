@@ -1,0 +1,51 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+
+   <mat-form-field>
+      <mat-select placeholder="Cliente" required [(ngModel)]="vendas.cliente" name="cliente">
+         <mat-option *ngFor="let cliente of clientes" [value]="cliente._id">
+            {{ cliente.nome_cliente }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-select placeholder="Produto" required [(ngModel)]="vendas.produto" name="produto">
+         <mat-option *ngFor="let produto of produtos" [value]="produto._id">
+            {{ produto.nome_produto }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+         <mat-select placeholder="Vendedor" required [(ngModel)]="vendas.vendedor" name="vendedor">
+            <mat-option *ngFor="let vendedor of vendedores" [value]="vendedor._id">
+               {{ vendedor.nome_vendedor }}
+            </mat-option>
+         </mat-select>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Nota Fiscal" required [(ngModel)]="vendas.nota_fiscal" name="nota_fiscal">
+      <mat-icon matSuffix>note</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Data da venda" required [(ngModel)]="vendas.data_venda" name="data_venda" >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+ 
+   <mat-toolbar class="form-buttons">
+      <mat-toolbar-row>
+         <button mat-raised-button type="submit" color="accent">
+            Salvar
+         </button>
+         <button mat-raised-button type="button" (click)="voltar(f)">
+            Voltar
+         </button>
+      </mat-toolbar-row>
+   </mat-toolbar>
+
+</form>

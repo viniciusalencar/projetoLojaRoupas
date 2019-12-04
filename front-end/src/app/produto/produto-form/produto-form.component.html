@@ -1,0 +1,50 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+   
+   <mat-form-field>
+      <input matInput placeholder="Nome do produto" required [(ngModel)]="produto.nome_produto" name="nome_produto">
+      <mat-icon matSuffix>add</mat-icon>
+   </mat-form-field> 
+
+   <mat-form-field>
+      <input matInput placeholder="Preço" required [(ngModel)] = "produto.preco" name='preco' type="number">
+      <mat-icon matSuffix>attach_money</mat-icon>
+    </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Código de Barras" required [(ngModel)]="produto.codigo_barra" name="codigo_barra" type="number">
+      <mat-icon matSuffix>format_align_justify</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Prateleira" required [(ngModel)]="produto.prateleira" name="prateleira">
+      <mat-icon matSuffix>format_list_numbered</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Tipo" required [(ngModel)]="produto.tipo" name="tipo">
+      <mat-icon matSuffix>title</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <mat-select placeholder="Fornecedor" required [(ngModel)]="produto.fornecedor" name="fornecedor">
+         <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor._id">
+            {{ fornecedor.nome_fornecedor }}
+         </mat-option>
+      </mat-select>
+   </mat-form-field>
+   
+
+   <mat-toolbar class="form-buttons">
+      <mat-toolbar-row>
+         <button mat-raised-button type="submit" color="accent">
+            Salvar
+         </button>
+         <button mat-raised-button type="button" (click)="voltar(f)">
+            Voltar
+         </button>
+      </mat-toolbar-row>
+   </mat-toolbar>
+
+</form>

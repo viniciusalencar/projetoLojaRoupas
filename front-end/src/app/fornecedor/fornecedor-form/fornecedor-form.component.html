@@ -1,0 +1,50 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+   <mat-form-field>
+      <input matInput placeholder="Nome completo" required [(ngModel)]="fornecedor.nome_fornecedor" name="nome_fornecedor">
+      <mat-icon matSuffix>person</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="CNPJ ou CPF" required [(ngModel)]="fornecedor.cnpj_cpf" name="cnpj_cpf" mask="00000000000999">
+      <mat-icon matSuffix>insert_drive_file</mat-icon>
+   </mat-form-field>
+      
+   <mat-form-field>
+      <input matInput placeholder="RG" [(ngModel)]="fornecedor.rg" name="rg" mask="00.000.000-0">
+      <mat-icon matSuffix>insert_drive_file</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Endereço Completo"  required [(ngModel)]="fornecedor.endereco" name="endereco">
+      <mat-icon matSuffix>room</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Telefone"  required [(ngModel)]="fornecedor.telefone" name="telefone" mask="(00) 00000-0009">
+      <mat-icon matSuffix>phone</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Inscrição Estadual" [(ngModel)]="fornecedor.inscricao_estadual" name="inscricao_estadual">
+      <mat-icon matSuffix>bookmark</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Inscrição Municipal" [(ngModel)]="fornecedor.inscricao_municipal" name="inscricao_municipal">
+      <mat-icon matSuffix>bookmark</mat-icon>
+   </mat-form-field>
+
+   <mat-toolbar class="form-buttons">
+      <mat-toolbar-row>
+         <button mat-raised-button type="submit" color="accent">
+            Salvar
+         </button>
+         <button mat-raised-button type="button" (click)="voltar(f)">
+            Voltar
+         </button>
+      </mat-toolbar-row>
+   </mat-toolbar>
+
+</form>

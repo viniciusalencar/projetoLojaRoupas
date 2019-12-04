@@ -1,0 +1,56 @@
+<h1>{{ title }}</h1>
+
+<form class="std-form" #f="ngForm" (ngSubmit)="salvar(f)">
+   <mat-form-field>
+      <input matInput placeholder="Nome completo" required [(ngModel)]="vendedor.nome_vendedor" name="nome_vendedor">
+      <mat-icon matSuffix>person</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="CPF" required [(ngModel)]="vendedor.cpf" name="cpf" mask="000.000.000-00">
+      <mat-icon matSuffix>insert_drive_file</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="RG" required [(ngModel)]="vendedor.rg" name="rg" mask="00.000.000-0">
+      <mat-icon matSuffix>insert_drive_file</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput [matDatepicker]="data_nascimento" placeholder="Data de nascimento" [(ngModel)]="vendedor.data_nascimento" name="data_nascimento" required>
+      <mat-datepicker-toggle matSuffix [for]="data_nascimento"></mat-datepicker-toggle>
+      <mat-datepicker #data_nascimento></mat-datepicker>
+   </mat-form-field>
+
+   <mat-form-field>
+      <textarea matInput placeholder="Endereço completo" [(ngModel)]="vendedor.endereco" rows="1" name="endereco"></textarea>
+      <mat-icon matSuffix>room</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Telefone (fixo ou celular)" required [(ngModel)]="vendedor.telefone" name="telefone" mask="(00) 00000-0009">
+      <mat-icon matSuffix>phone</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="E-mail" required [(ngModel)]="vendedor.email" name="email" type="email">
+      <mat-icon matSuffix>mail</mat-icon>
+   </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Setor" required [(ngModel)]="vendedor.setor" name="setor">
+      <mat-icon matSuffix>space-bar</mat-icon>
+   </mat-form-field>
+
+   <mat-toolbar class="form-buttons">
+      <mat-toolbar-row>
+         <button mat-raised-button type="submit" color="accent">
+            Salvar
+         </button>
+         <button mat-raised-button type="button" (click)="voltar(f)">
+            Voltar
+         </button>
+      </mat-toolbar-row>
+   </mat-toolbar>
+
+</form>
